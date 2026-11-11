@@ -33,8 +33,14 @@ import torch.nn.functional as F
 def cumprod_alphas(alphas):
     return torch.cumprod(alphas, dim=0)
 
-# Step 4 - extract_into_batch (not yet solved)
-# TODO: implement
+# Step 4 - extract_into_batch
+import torch
+import torch.nn.functional as F
+
+def extract_into_batch(a, t, x):
+    # TODO: gather a[t] and reshape to (B, 1, 1, 1) for broadcasting with x
+    value = a[t]
+    return value.reshape(x.shape[0], 1, 1, 1)
 
 # Step 5 - q_sample (not yet solved)
 # TODO: implement
